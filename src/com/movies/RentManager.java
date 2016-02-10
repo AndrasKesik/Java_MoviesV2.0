@@ -44,14 +44,14 @@ public class RentManager {
         System.out.printf("Investment on %s: %d\n", b2.getTitle(),b2.getInvestment());
 
 
-        List<Object> a = new ArrayList<Object>();
+        List<Buyable> a = new ArrayList<Buyable>();
         a.add(g1);
         a.add(g2);
         a.add(m1);
         System.out.printf("\nSum of prices: %d",sumPrices(a));
     }
 
-    public static long sumPrices(List<Object> listOfObjects){
+    public static long sumPrices(List<Buyable> listOfObjects){
         long result=0;
         for (Object o: listOfObjects){
             if     (o instanceof Movie){result += ((Movie) o).getPrice();}
