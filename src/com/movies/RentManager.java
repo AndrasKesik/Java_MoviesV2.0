@@ -1,6 +1,7 @@
 package com.movies;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RentManager {
@@ -43,19 +44,19 @@ public class RentManager {
         System.out.printf("Investment on %s: %d\n", b1.getTitle(),b1.getInvestment());
         System.out.printf("Investment on %s: %d\n", b2.getTitle(),b2.getInvestment());
 
+        List<Buyable> a = Arrays.asList(m1, g1, g2);
 
-        List<Buyable> a = new ArrayList<Buyable>();
-        a.add(g1);
-        a.add(g2);
-        a.add(m1);
+//        List<Buyable> a = new ArrayList<Buyable>();
+//        a.add(g1);
+//        a.add(g2);
+//        a.add(m1);
         System.out.printf("\nSum of prices: %d",sumPrices(a));
     }
 
     public static long sumPrices(List<Buyable> listOfObjects){
         long result=0;
-        for (Object o: listOfObjects){
-            if     (o instanceof Movie){result += ((Movie) o).getPrice();}
-            else if(o instanceof Game) {result += ((Game)  o).getPrice();}}
+        for (Buyable o: listOfObjects){
+            result+=o.getPrice();}
         return result;
     }
 }
