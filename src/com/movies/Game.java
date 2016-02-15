@@ -1,6 +1,7 @@
 package com.movies;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Game extends Product implements Buyable{
@@ -8,14 +9,16 @@ public class Game extends Product implements Buyable{
     boolean preOrdered;
     List<Person> staff;
     int price;
+    int releaseDate;
 
-    public Game(String title, boolean preOrdered, int price,Person person) {
+    public Game(String title, boolean preOrdered, int price,Person person, int releaseDate) {
         this.title = title;
         this.preOrdered = preOrdered;
         this.staff = new ArrayList<Person>();
         this.price = price;
         this.person = person;
         this.id = IdGenerator.generate(this);
+        this.releaseDate = releaseDate;
     }
 
     public boolean isPreOrdered() {
@@ -36,9 +39,12 @@ public class Game extends Product implements Buyable{
     @Override
     public int getPrice() {
         if (preOrdered){
-            return (int)((double)price*0.8);
+            return (int)(price*0.8);
         }
-        return price;
+        int p = (Calendar.getInstance().get(Calendar.YEAR) - releaseDate);
+        if(p<10){
+            return (int) Math.round(price*(1.0-((Calendar.getInstance().get(Calendar.YEAR) - releaseDate)*0.1)));}
+        else{return 0;}
     }
 
     @Override

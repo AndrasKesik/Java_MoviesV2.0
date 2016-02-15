@@ -10,7 +10,7 @@ public class RentManager {
 
         Person p1 = new Person("Git","Áron",Gender.MALE, 5555);
         Person p2 = new Person("Külö","Nóra",Gender.FEMALE, 4444);
-        Person p3 = new Person("Eszet","Lenke",Gender.FEMALE, 3586);
+        Person p3 = new Person("Lassú","ANet(t)",Gender.FEMALE, 3586);
         Person p4 = new Person("Kér","Ede",Gender.MALE, 4538);
         Person p5 = new Person("Koaxk","Ábel",Gender.MALE, 5387);
         Person p6 = new Person("Elektrom","Ágnes",Gender.FEMALE, 5198);
@@ -28,8 +28,8 @@ public class RentManager {
         System.out.printf("Investment on %s: %d\n", m1.getTitle(),m1.getInvestment());
         System.out.printf("Investment on %s: %d\n", m2.getTitle(),m2.getInvestment());
 
-        Game g1 = new Game("The Witcher", true, 80, p4);
-        Game g2 = new Game("Call of Duty", false, 70, p5);
+        Game g1 = new Game("The Witcher", true, 80, p4,2011);
+        Game g2 = new Game("Call of Duty", false, 70, p5,2005);
         g1.getStaff().add(p2);
         g1.getStaff().add(p3);
         g2.getStaff().add(p6);
@@ -44,7 +44,7 @@ public class RentManager {
         System.out.printf("Investment on %s: %d\n", b1.getTitle(),b1.getInvestment());
         System.out.printf("Investment on %s: %d\n", b2.getTitle(),b2.getInvestment());
 
-        List<Buyable> a = Arrays.asList(m1, g1, g2);
+        List<Buyable> a = Arrays.asList(g2);
 
 //        List<Buyable> a = new ArrayList<Buyable>();
 //        a.add(g1);
